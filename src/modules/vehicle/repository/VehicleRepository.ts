@@ -16,4 +16,36 @@ export default class VehicleRepository implements IVehicleRepository {
 
     return await this.ormRepository.save(customer);
   }
+
+  public async list(): Promise<Vehicle[]> {
+    return await this.ormRepository.find();
+  }
+
+  public async findById(id: number): Promise<Vehicle | null> {
+    return await this.ormRepository.findOne({
+      where: { id }
+    });
+  }
+
+  public async save(vehicle: VehicleInterface): Promise<Vehicle> {
+    return await this.ormRepository.save(vehicle);
+  }
+
+  public async findByPlate(plate: string): Promise<Vehicle | null> {
+    return await this.ormRepository.findOne({
+      where: { placa: plate }
+    })
+  }
+
+  public async findByChassi(chassi: string): Promise<Vehicle | null> {
+    return await this.ormRepository.findOne({
+      where: { chassi }
+    })
+  }
+  
+  public async findByReindeer(reindeer: string): Promise<Vehicle | null> {
+    return await this.ormRepository.findOne({
+      where: { renavam: reindeer }
+    })
+  }
 }
