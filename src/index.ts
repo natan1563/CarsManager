@@ -1,12 +1,14 @@
 import 'reflect-metadata'
 import 'dotenv/config';
 import './container'
+import 'express-async-errors';
 
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import routes from './routes/vehicle';
 import cors from 'cors'
 import { errors } from 'celebrate'
 import { dataSource } from './database';
+import Exception from './exceptions/Exception';
 
 const app = express();
 
@@ -15,6 +17,15 @@ app.use(express.json());
 
 app.use('/vehicle', routes)
 app.use(errors())
+
+app.use((error: Exception, _: Request, res: Response, next: NextFunction) => {
+  return res
+    .status(error.statusCode)
+    .json({
+      status: 'error',
+      message: error.message
+    });
+});
 
 dataSource.initialize().then(() => {
   const serverPort = process.env.APP_PORT || 8000
