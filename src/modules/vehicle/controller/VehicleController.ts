@@ -4,6 +4,7 @@ import CreateVehicleService from "../services/CreateVehicleService";
 import ListVehicleService from "../services/ListVehicleService";
 import FindVehicleService from "../services/FindVehicleService";
 import UpdateVehicleService from "../services/UpdateVehicleService";
+import DeleteVehicleService from "../services/DeleteVehicleService";
 
 export default class VehicleController {
   public async createVehicle(request: Request, response: Response): Promise<Response> {
@@ -40,5 +41,12 @@ export default class VehicleController {
     const updatedVehicle = await updateVehicleService.execute(Number(request.params.id), request.body);
 
     return response.json(updatedVehicle);
+  }
+
+  public async removeVehicle(request: Request, response: Response): Promise<Response> {
+    const findVehicleService = container.resolve(DeleteVehicleService);
+    const vehicle = await findVehicleService.execute(Number(request.params.id))
+
+    return response.json(vehicle)
   }
 }

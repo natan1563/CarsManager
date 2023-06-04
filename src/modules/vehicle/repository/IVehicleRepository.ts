@@ -5,7 +5,8 @@ export interface IVehicleRepository {
   list(): Promise<VehicleInterface[]>;
   findById(id: number): Promise<VehicleInterface | null>;
   save(vehicle: VehicleInterface): Promise<VehicleInterface>;
-  findByPlate(plate: string): Promise<VehicleInterface | null>
-  findByChassi(chassi: string): Promise<VehicleInterface | null>
-  findByReindeer(reindeer: string): Promise<VehicleInterface | null>
+  findByPlate(plate: string): Promise<VehicleInterface | null>;
+  findByChassi(chassi: string): Promise<VehicleInterface | null>;
+  findByReindeer(reindeer: string): Promise<VehicleInterface | null>;
+  remove(vehicle: VehicleInterface): Promise<VehicleInterface>;
 }

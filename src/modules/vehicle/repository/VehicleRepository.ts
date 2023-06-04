@@ -48,4 +48,8 @@ export default class VehicleRepository implements IVehicleRepository {
       where: { renavam: reindeer }
     })
   }
+
+  public async remove(vehicle: VehicleInterface): Promise<Vehicle> {
+    return await this.ormRepository.remove(vehicle as Vehicle)
+  }
 }
