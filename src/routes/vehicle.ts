@@ -1,4 +1,4 @@
-import VehicleController from '@modules/vehicle/controller/VehicleController';
+import VehicleController from '../modules/vehicle/controller/VehicleController';
 import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
 

@@ -1,8 +1,8 @@
 import { inject, injectable } from "tsyringe";
 import { IVehicleRepository } from "../repository/IVehicleRepository";
 import { VehicleInterface } from "../models/VehicleInterface";
-import NotFoundException from "src/exceptions/NotFoundException";
-import BadRequestException from "src/exceptions/BadRequestException";
+import NotFoundException from "@src/exceptions/NotFoundException";
+import BadRequestException from "@src/exceptions/BadRequestException";
 
 @injectable()
 export default class UpdateVehicleService {
