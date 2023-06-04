@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  Index,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from "typeorm";
@@ -11,12 +12,15 @@ export default class Vehicle {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Index({ unique: true })
   @Column()
   placa: string;
 
+  @Index({ unique: true })
   @Column()
   chassi: string;
 
+  @Index({ unique: true })
   @Column()
   renavam: string;
 

@@ -17,16 +17,19 @@ export class Vehicle1685841078590 implements MigrationInterface {
                 name: 'placa',
                 type: 'varchar',
                 length: "8",
+                isUnique: true,
               },
               {
                 name: 'chassi',
                 type: 'varchar',
                 length: "17",
+                isUnique: true,
               },
               {
                 name: 'renavam',
                 type: 'varchar',
                 length: "11",
+                isUnique: true,
               },
               {
                 name: 'modelo',
