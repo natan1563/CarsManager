@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "target": "es5",
     "module": "commonjs",
     "lib": ["es6"],
@@ -9,7 +10,7 @@
     "strict": true,
     "noImplicitAny": true,
     "strictPropertyInitialization": false,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@config/*": [
         "src/config/*"
@@ -17,6 +18,9 @@
       "@modules/*": [
         "src/modules/*"
       ],
+      "@src/*": [
+        "src/*"
+      ]
     },
     "typeRoots": [
       "@types",
