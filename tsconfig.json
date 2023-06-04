@@ -14,14 +14,8 @@
       "@config/*": [
         "src/config/*"
       ],
-      "@models/*": [
-        "src/models/*"
-      ],
-      "@controlers/*": [
-        "src/controlers/*"
-      ],
-      "@services/*": [
-        "src/services/*"
+      "@modules/*": [
+        "src/modules/*"
       ],
     },
     "typeRoots": [

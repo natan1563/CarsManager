@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import Vehicle from '@models/vehicle/Vehicle'
+import Vehicle from '@modules/vehicle/models/Vehicle'
 import { DataSource } from 'typeorm'
 import { Vehicle1685841078590 } from './migrations/1685841078590-Vehicle'
 
