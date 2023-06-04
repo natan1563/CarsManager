@@ -10,6 +10,8 @@ export class Vehicle1685841078590 implements MigrationInterface {
                 name: 'id',
                 type: 'bigint',
                 isPrimary: true,
+                isGenerated: true,
+                generationStrategy: 'increment'
               },
               {
                 name: 'placa',
