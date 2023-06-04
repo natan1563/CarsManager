@@ -5,11 +5,18 @@ import { Router } from 'express';
 const routes = Router();
 const vehicleController = new VehicleController();
 
-routes.get('/', (req, res) => {
-  res.json({
-    ping: "pong"
-  })
-})
+routes.get('/', vehicleController.listVehicles)
+
+routes.get(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.number().required()
+    }
+  }),
+  vehicleController.findVehicle
+)
+
 routes.post(
   '/',
   celebrate({
@@ -19,10 +26,28 @@ routes.post(
       renavam: Joi.string().required(),
       modelo: Joi.string().required(),
       marca: Joi.string().required(),
-      ano: Joi.required()
+      ano: Joi.number().required()
     }
   }),
   vehicleController.createVehicle
+)
+
+routes.put(
+  '/:id', 
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.number().required()
+    },
+    [Segments.BODY]: {
+      placa: Joi.string().required(),
+      chassi: Joi.string().required(),
+      renavam: Joi.string().required(),
+      modelo: Joi.string().required(),
+      marca: Joi.string().required(),
+      ano: Joi.number().required()
+    }
+  }),
+  vehicleController.updateVehicle
 )
 
 export default routes
